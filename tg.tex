@@ -1,0 +1,180 @@
+%%% exemplo de utilização da classe ita
+%%%
+%%%   por        fábio fagundes silveira   -  ffs [at] ita [dot] br
+%%%              benedito c. o. maciel     -  bcmaciel [at] ita [dot] br
+%%%              giovani volnei meinertz   -  giovani [at] ita [dot] br
+%%%    	         hudson alberto bode       -  bode [at] ita [dot]br
+%%%    	         p. i. braga de queiroz    -  pi [at] ita [dot] br
+%%%    	         jorge a. b. gripp         -  gripp [at] ita [dot] br
+%%%    	         juliano monte-mor         -  jamontemor [at] yahoo [dot] com [dot] br
+%%%    	         tarcisio a. b. gripp      -  tarcisio.gripp [at] gmail [dot] com
+%%%
+%%%   versão para overleaf:
+%%%   por           alejandro a. rios cruz - aarc.88@gmail.com
+%%%                 saulo gómez            - sagomezs@unal.edu.co
+%%%  importante: o texto contido neste exemplo nao significa absolutamente nada.  :-)
+%%%              o intuito aqui eh demonstrar os comandos criados na classe e suas
+%%%              respectivas utilizacoes.
+%%%
+%%%  tese.tex  2016-08-25
+%%%  $headurl: http://www.apgita.org.br/apgita/teses-e-latex.php $
+%%%
+%%% italus
+%%% instituto tecnológico de aeronáutica --- ita, sao jose dos campos, brasil
+%%%                   http://groups.yahoo.com/group/italus/
+%%% discussion list: italus {at} yahoogroups.com
+%%%
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% para alterar o tipo de documento, preencher a linha abaixo \documentclass[?]{?}
+%   \documentclass[tg]{ita}			= trabalho de graduacao
+%   \documentclass[tgfem]{ita}	= para engenheiras
+%   								msc     		= dissertacao de mestrado
+%   								mscfem   		= para mestras
+%   								dsc      		= tese de doutorado
+%   								dscfem   		= para doutoras
+%   								quali    		= exame de qualificacao
+%   								qualifem 		= exame de qualificacao para doutoras
+% para 'draft version'/'versao preliminar' com data no rodape, adicionar 'dv':
+%   \documentclass[dsc, dv]{ita}
+% para trabalhos em inglês, adicionar 'eng':
+%   \documentclass[dsc, eng]{ita}
+%		\documentclass[dsc, eng, dv]{ita}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\documentclass[tg]{ita}    % ita.cls based on standard book.cls
+% quando alterar a classe, por exemplo de [msc] para [msc, eng]) rode mais uma vez o botão build output caso haja erro
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{url}         % formats url addresses properly
+\usepackage{appendix}    % allows appendix section to be included
+\usepackage{lscape}      % allows a page to be rendered in landscape mode
+\usepackage{multicol}    % allows text in multi columns
+\usepackage{cancel}      % needed to show canceled terms in equations
+\usepackage{lettrine}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{minted}
+\usepackage{prettyref}
+
+\renewcommand\listingscaption{Código}
+
+\newrefformat{anex}{Anexo~\ref{#1}}
+\newrefformat{cap}{Capítulo~\ref{#1}}
+\newrefformat{lst}{Código~\ref{#1}}
+\newrefformat{tbl}{Tabela~\ref{#1}}
+
+% Make ref autocomplete work.
+\newcommand{\cref}[1]{\prettyref{#1}}
+
+\usemintedstyle{friendly}
+
+%HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+%\usepackage{subfigure}
+%\usepackage{subfigmat}
+%PACOTEFIGURAS_SE _ERRADO_ESXCLUIR_ACIMA
+\usepackage{booktabs}
+%PACOTETABELAS_SE _ERRADO_ESXCLUIR_ACIMA
+%HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Espaçamento padrão de todo o documento
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\onehalfspacing
+
+%singlespacing Para um espaçamento simples
+%onehalfspacing Para um espaçamento de 1,5
+%doublespacing Para um espaçamento duplo
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Identificacoes (se o trabalho for em inglês, insira os dados em inglês)
+% Para entradas abreviadas de Professora (Profa.) em português escreva: Prof$^\textnormal{a}$.
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\course{Engenharia Eletrônica}
+
+% Autor do trabalho: Nome Sobrenome
+\authorgender{masc}
+\author{Lucas Barioni}{Toma}
+\itaauthoraddress{Rua H8A, 133}{12.228-460}{São José dos Campos--SP}
+
+% Titulo da Tese/Dissertação
+\title{Desenvolvimento de uma técnica de teste rápido de mutação de \textit{software}}
+
+% Orientador
+\advisorgender{masc}
+\advisor{Prof.~Dr.}{Luiz Alberto Vieira Dias}{ITA}
+
+%Coordenador do curso no caso de TG
+\bosscoursegender{masc}
+\bosscourse{Prof.~Dr.}{Marcelo da Silva Pinho}
+
+% Palavras-Chaves informadas pela Biblioteca -> utilizada na CIP
+%\kwcip{Cupim}
+
+% Data da defesa (mês em maiúsculo, se trabalho em inglês, e minúsculo se trabalho em português)
+\date{XX}{XXX}{2021}
+
+% Número CDU - (somente para TG)
+\cdu{XXX.XX}
+
+% Glossario
+\makeglossary
+\frontmatter
+
+\begin{document}
+\input{PreTextuais/main}
+
+\mainmatter
+% Os capitulos comecam aqui
+
+\chapter{Introdução}
+\input{Capitulos/intro}
+
+\chapter{Trabalhos Anteriores}\label{cap:past-works}
+\input{Capitulos/trabalhos-anteriores}
+
+\chapter{Proposta}\label{cap:proposal}
+\input{Capitulos/proposta}
+
+
+% REFERENCIAS BIBLIOGRAFICAS
+\renewcommand\bibname{\itareferencesnamebabel} %renomear título do capítulo referências
+\bibliography{referencias}
+
+\annex
+\chapter{Exemplo de anexo}\label{anex:wsdl-example}
+\input{Anexos/anexoA.tex}
+
+
+% Glossario
+%\itaglossary
+%\printglossary
+
+% Folha de Registro do Documento
+% Valores dos campos do formulario
+\FRDitadata{25 de março de 2015}
+\FRDitadocnro{DCTA/ITA/DM-018/2015} %(o número de registro você solicita a biblioteca)
+\FRDitaorgaointerno{Instituto Tecnológico de Aeronáutica -- ITA}
+%Exemplo no caso de pós-graduação: Instituto Tecnol{\'o}gico de Aeron{\'a}utica -- ITA
+\FRDitapalavrasautor{Cupim; Cimento; Estruturas}
+\FRDitapalavrasresult{Cupim; Dilema; Construção}
+%Exemplo no caso de graduação (TG):
+\FRDitapalavraapresentacao{Trabalho de Graduação, ITA, São José dos Campos, 2015. \NumPenultimaPagina\ páginas.}
+%Exemplo no caso de pós-graduação (msc, dsc):
+%\FRDitapalavraapresentacao{ITA, São José dos Campos. Curso de Mestrado. Programa de Pós-Graduação em Engenharia Aeronáutica e Mecânica. Área de Sistemas Aeroespaciais e Mecatrônica. Orientador: Prof.~Dr. Adalberto Santos Dupont. Coorientadora: Prof$^\textnormal{a}$.~Dr$^\textnormal{a}$. Doralice Serra. Defesa em 05/03/2015. Publicada em 25/03/2015.}
+\FRDitaresumo{\input{PreTextuais/resumo}}
+%  Primeiro Parametro: Nacional ou Internacional -- N/I
+%  Segundo parametro: Ostensivo, Reservado, Confidencial ou Secreto -- O/R/C/S
+\FRDitaOpcoes{N}{O}
+% Cria o formulario
+%\itaFRD
+
+
+\end{document}
+
+% Fim do Documento. O massacre acabou!!! :-)
